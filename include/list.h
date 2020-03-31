@@ -13,8 +13,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct LIST_HEADER _list_header_t;
+#define offsetof(type,element)	((size_t)&(((type *)0)->element))
 
-int test_line();
+typedef struct LIST_HEADER _list_header_t;
+struct LIST_HEADER {
+	_list_header_t *next;
+	_list_header_t *prev;
+};
 
 #endif
